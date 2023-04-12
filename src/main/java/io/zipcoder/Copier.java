@@ -9,12 +9,12 @@ import java.util.Iterator;
 public abstract class Copier implements Runnable {
     // We use an iterator so each monkey / thread can copy an individual word.
     public Iterator<String> stringIterator;
-    public String copied;
+    public StringBuilder copied;
 
     public Copier(String toCopy) {
         // Take the input string, split it on spaces, turn that array to an arraylist, and then grab its iterator.
         this.stringIterator = Arrays.asList(toCopy.split(" ")).iterator();
-        this.copied = "";
+        this.copied = new StringBuilder();
     }
 
     public abstract void run();
